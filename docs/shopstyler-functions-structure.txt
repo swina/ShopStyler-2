@@ -1,0 +1,214 @@
+SHOPSTYLER 2.1.0
+
+-----------------------------------------------------------------
+shopstyler.php
+-----------------------------------------------------------------
+ADMIN
+	
+	shopstyler_render_custom_css()		=> custom css main compiler
+
+FRONTEND
+
+	ss_create_categories_page()			=> create custom homepage
+	ss_loop_template()					=> load includes 	
+	shopstyler_load_base_css()			=> load css and js
+	
+
+-----------------------------------------------------------------	
+/ss/admin/ss-admin-css-compiler.php
+------------------------------------------------------------------
+    css_render_shopstyler_header        => shop header css
+(*)	css_render_shop_header				=> shop header css (OLD)
+	css_render_shop_header_sidebar		=> shop (with sidebar) header css	
+	css_render_images_style				=> images css
+	css_render_images_border			=> images border css
+	css_render_scale					=> scale effect css
+	css_render_footer					=> pseudo footer css
+(*)	css_render_callout					=> pseudo footer (callout) css (NOT USED)
+(*)	css_render_palette					=> color palette css (not used) 
+	css_render_product_selectors		=> loop item, single product and all woo selectors css
+	css_render_single_product_layout	=> single product layout css
+	css_render_splash					=> splash modal css
+	css_render_slider_sidebar			=> not used (to delete)
+	
+	
+-----------------------------------------------------------------	
+/ss/admin/ss-template.php
+------------------------------------------------------------------
+	ss_template_css						=> templating css engine
+	
+	
+==================================================================
+/ss/ss-hooks.php
+==================================================================
+Create ss hooks as new templating
+
+Remove woocommerce components
+******************************************************************
+	woo_custom_hide_sales_flash			=> remove woocomerce sales flash price
+	
+	woo_hide_page_title					=> remove page title
+
+
+LOOPS TEMPLATING AND HOOKS
+******************************************************************
+[HEADER]
+	wrapper_ss_head()					=> create ss head wrapper
+		> ss_header							-> ss_header hook
+	
+[WRAPPER]
+	ss_wrapper_start()					=> open main wrapper
+	ss_wrapper_end()					=> close main wrapper
+
+[CONTENT]	
+	wrapper_ss_content_start()			=> open main content wrapper
+		> ss_before_content					-> ss_before_content hook
+		> ss_content						-> ss_content hook
+	
+	wrapper_ss_content_end()			=> close main content wrapper
+		> ss_content_after					-> ss_content_after hook
+	
+[PSEUDO-SIDEBAR]
+	wrapper_ss_sidebar_start			=> open pseudo sidebar
+		> ss_sidebar						-> ss_sidebar hook
+	
+	wrapper_ss_sidebar_end				=> close pseudo sidebar
+		> ss_sidebar_after					-> ss_sidebar_after hook
+
+[PSEUDO-FOOTER]	
+	wrapper_ss_footer_start				=> open pseudo footer
+		> ss_footer							-> ss_footer hook
+		
+	wrapper_ss_footer_end				=> close pseudo footer
+
+	
+SINGLE PRODUCT TEMPLATING AND HOOKS
+******************************************************************
+	
+	wrapper_ss_single					=> create single product wrapper
+		-> ss_single_left					-> ss_single_left hook
+		-> ss_single_thumbs					-> ss_single_thumbs hook
+		-> ss_single_right					-> ss_single_right hook
+		-> ss_single_summary_after			-> ss_single_summary_after hook
+	
+	wrapper_ss_related					=> create single product collateral wrapper
+		-> ss_related						-> ss_related hook
+
+		
+-----------------------------------------------------------------	
+/ss/ss-loop.php
+------------------------------------------------------------------
+	init								=> init engine
+	
+-----------------------------------------------------------------	
+/ss/templates/ss-cart.php
+------------------------------------------------------------------
+	
+	woo_set_coupon						=> add coupon input to cart
+
+-----------------------------------------------------------------	
+/ss/templates/ss-categories.php
+------------------------------------------------------------------
+**** CUSTOM HOMPAGE ****
+
+(*)	ss_cat_output						=> not used
+	ss_cat_output2						=> categories tiles render
+(*)	ss_home_banners						=> to be implemented
+	ss_close_categories					=> close categories tiles
+	ss_shop_header_home					=> create header for custom homepage
+	ss_home_categories					=> categories tiles query
+	ss_last_products					=> new products query
+	ss_top_rated_products				=> top rated products query
+	ss_onsale_products					=> on sale product query
+	ss_render_home_section				=> render new products, top rated and on sale queries result
+		
+-----------------------------------------------------------------	
+/ss/templates/ss-functions.php
+------------------------------------------------------------------
+	
+	ss_shopheader						=> render shop header
+	ss_shopheader_category				=> reshop product category header
+	ss_sticky							=> render sticky
+(*)	woo_shop_header_home				=> render shop home header (??? not used ???)
+	woo_add_to_cart_button				=> render add to cart button
+(*)	ss_add_to_car_icon					=> render add to cart icon (??? not used ???)
+	get_desc							=> get the product excerpt
+(*)	woo_shop_header_css					=> shop header css (??? not used ???)
+(*)	woo_shop_header						=> render shop header (??? not used ???)
+(*)	woo_shop_header_with_sidebar		=> render shop header sidebar layout (??? not used ???)
+	ss_shop_title						=> render shop title (shop or category)
+	product_discount					=> return discount value
+		$price , $sale
+	woo_star_rating						=> render star rating
+	social_footer						=> render social sharing
+	social_footer_product				=> render social sharing single product
+	shopstyler_callout_css				=> footer css
+	shopstyler_callout					=> render callout
+	woo_categories_tree					=> render categories tree (sidebar)
+	ss_promote_product					=> query promote products (sidebar)
+	ss_render_sidebar_product			=> render promote products (sidebar)
+(!)	do_console							=> NOT USED
+	woo_create_dialog					=> create modal (quickview)
+	woo_create_splash					=> create modal (splash)
+(!)	woo_create_splash_join				=> NOT USED
+(!)	woo_modal							=> NOT USED
+	
+
+-----------------------------------------------------------------	
+/ss/templates/ss-parts.php
+------------------------------------------------------------------
+***** LOOP PARTS AND HOOKS
+
+	ss_loop_standard_layout				=> open loop item layout
+		-> ss_loop_before_product_data		-> ss_loop_before_product_data hook
+		-> ss_loop_product_data				-> ss_loop_product_data hook
+	
+	ss_loop_image						=> loop item image
+		-> ss_loop_after_product_image		-> ss_loop_after_product_image hook
+		
+	ss_loop_title						=> loop item title
+
+	ss_loop_price						=> loop item price
+	
+	ss_loop_discount					=> loop item discount
+	
+	ss_loop_rating						=> loop item star rating
+	
+	ss_loop_excerpt						=> loop item excerpt
+	
+	ss_loop_quickview					=> loop item quickview button
+	
+	ss_loop_add_to_cart					=> loop item add to cart button
+	
+-----------------------------------------------------------------	
+/ss/templates/ss-sidebar.php
+------------------------------------------------------------------
+	
+	woo_set_price_filter				=> add price filter to sidebar
+	ss_variations						=> add variation filter to sidebar (??? not working ???)
+	
+-----------------------------------------------------------------	
+/ss/templates/ss-single-functions.php
+------------------------------------------------------------------
+
+	ss_upsells_display					=> render upsell products
+	ss_related_display					=> render related products
+	get_related_custom					=> query related products
+	ss_render_query						=> render query result
+
+-----------------------------------------------------------------	
+/ss/templates/ss-single.php
+------------------------------------------------------------------
+	
+	init_single							=> init single product
+	single_add_hooks					=> create single product hooks
+	single_remove_hooks					=> remove woocommerce single product hooks
+	remove_shop_title					=> remove shop title
+	ss_breadcrumbs						=> render breadcrumbs
+	ss_product_summary					=> render single product summary
+	ss_single_title						=> render single product title
+	ss_single_rating					=> render single product rating
+	ss_single_product_images			=> render single product images
+	ss_single_product_thumnails			=> render single product thumbnail
+	get_thumbnails						=> get single product thumbnail
+	woo_reviews_count					=> get reviews count (??? NOT USED ???)

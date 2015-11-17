@@ -1,0 +1,28 @@
+.shop-category-header-image { background: url(http://localhost/shopstyler2/wp-content/uploads/2015/10/model-600238_1920.jpg) no-repeat center center  ; 
+    background-size:cover; height: 385px!important; }.button { border-radius:3px!important; }ul.products { text-align: left!important; }ul.products li.product a img , .woocommerce-page div.single-product-wrapper img , .single-product-image img , .ss_footer ul.products li.product img , .gallery-thumb  { border-radius:10%!important; }.callout {
+    width:100%!important;
+    height: 253px;
+    max-height: 253px;  
+    min-height: 253px; 
+    color: ; 
+    background: url(http://localhost/shopstyler2/wp-content/uploads/2015/10/macbook-577758_1920.jpg) no-repeat top center
+    } ul.products li.product h2 { color: #990000!important; }
+ul.products li.product .price .amount { color: #CC0000!important; }
+ul.products li.product .button { color: #FFFFFF; background: #990000!important; font-size: .7vw; }
+ul.products li.product .button:hover { color: #FFFFFF; background: #CC0000!important; }
+ul.products li.product .ss-star-on { color: #FFCC00!important; } 
+.button { color: #FFFFFF!important; background: #990000!important; font-size: .7vw!important; }
+.button:hover { color: #FFFFFF!important; background: #CC0000!important; }
+.woocommerce table.shop_table thead tr th { color: #FFFFFF; background: #990000!important; font-size: .7vw; } .woocommerce .summary h2 { color: #990000!important; }
+.woocommerce div.product .price .amount { color: #CC0000!important; }
+.woocommerce div.product .button { color: #FFFFFF; background: #990000!important; font-size: .7vw; }
+.woocommerce div.product .button:hover { color: #FFFFFF; background: #CC0000!important; }
+.woocommerce div.product .ss-star-on { color: #FFCC00!important; }
+.woocommerce .summary .posted_in a { color: #FFCC00!important;}
+.woocommerce .summary .posted_in a:hover { color: #990000!important;}.discount { color: #FFFFFF!important; border-color: transparent #990000 transparent transparent!important; }.modal .product-title { color: #990000!important; }
+.modal .product-title { color: #CC0000!important; }
+.modal .product-rating .ss-star-on { color: #FFCC00!important; }ul.custom-home-page-products li.product .price-home { color: #CC0000!important; }
+      ul.custom-home-page-products li.product .title { color: #FFFFFF!important; background: #990000!important; }.single-product-image { margin-left:0!important; }.md-splash { 
+          background:url(http://localhost/shopstyler2/wp-content/uploads/2015/10/jeans-339388_1280.jpg) no-repeat top left; background-size:cover!important; }.splash-container h2 { color: #ffffff!important; 
+          background: #1e73be!important; }.splash-container h4 { color: #dd9933!important; 
+          background: transparent!important; }

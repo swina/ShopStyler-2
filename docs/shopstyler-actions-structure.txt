@@ -1,0 +1,149 @@
+SHOPSTYLER 2.1.0
+
+
+shopstyler.php
+-----------------------------------------------------------------
+ADMIN
+	
+	[custom css compiler call]
+	add_action ( 'redux/options/shopstyler/saved' , 'shopstyler_render_custom_css' , 100);
+
+	
+FRONTEND
+
+[load file to be included needs to load after plugins loaded]
+	add_action( 'plugins_loaded', 'ss_loop_template' ); 
+
+[create a modal dialog quickview]
+	add_action ( 'wp_footer' , 'woo_create_dialog' );
+	
+[create splash modal dialog]
+	add_action ( 'wp_footer' , 'woo_create_splash' );
+
+
+/ss/ss-hooks.php
+-----------------------------------------------------------------
+
+[SHOP LOOP][NOSIDEBAR LAYOUT]
+
+	add_action ( 'woocommerce_before_shop_loop' , 'wrapper_ss_head' , 2 );
+	add_action ( 'woocommerce_before_shop_loop' , 'ss_wrapper_start' , 3 );
+	add_action ( 'ss_before_content' , 'wrapper_ss_sidebar_start' , 20);
+	add_action ( 'ss_before_content' , 'wrapper_ss_sidebar_end' , 30);
+	add_action ( 'woocommerce_after_shop_loop' , 'wrapper_ss_content_end' , 10 );
+	
+[SHOP LOOP][SIDEBAR LAYOUT]
+	add_action ( 'woocommerce_after_shop_loop' , 'wrapper_ss_content_end' , 10 );
+	add_action ( 'woocommerce_after_shop_loop' , 'wrapper_ss_sidebar_start' , 20);
+	add_action ( 'woocommerce_after_shop_loop' , 'wrapper_ss_sidebar_end' , 30);
+	
+[SHOP LOOP][ALL LAYOUTS]
+	add_action ( 'woocommerce_after_shop_loop' , 'wrapper_ss_footer_start' , 100 );
+	add_action ( 'woocommerce_after_shop_loop' , 'wrapper_ss_footer_end' , 110 );
+	add_action ( 'woocommerce_after_shop_loop' , 'ss_wrapper_end' , 120 );
+	
+[SINGLE PRODUCT]
+	add_action ( 'woocommerce_before_single_product' , 'wrapper_ss_content_start' , 20 );
+	add_action ( 'woocommerce_single_product_summary' , 'wrapper_ss_single' , 25 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_content_end' , 10 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_sidebar_start' , 20 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_sidebar_end' , 30 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_related' , 40 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_footer_start' , 50 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_footer_end' , 60 );
+	
+	
+/ss/ss-loop.php
+-----------------------------------------------------------------
+	
+	add_action( 'wp', 'init' );
+	add_action( 'wp_head', 'shopstyler_load_base_css');
+	add_action( 'ss_header' , 'woo_shop_header' );
+	add_action( 'ss_before_content' , 'woocommerce_breadcrumb' );
+	add_action( 'ss_content' , 'ss_shop_title' );
+	
+
+/ss/templates/ss-cart.php
+-----------------------------------------------------------------
+
+	add_action ( 'woocommerce_before_cart_totals' , 'woo_set_coupon' , 10 );
+	
+
+/ss/templates/ss-footer.php
+-----------------------------------------------------------------
+	
+	add_action ( 'ss_footer' , 'social_footer' );
+	add_action ( 'ss_footer' , 'shopstyler_callout' );
+	
+
+/ss/templates/ss-loop-image.php (NOT USED ?????)
+-----------------------------------------------------------------
+
+	add_action( 'woocommerce_before_shop_loop_item_title', 'shopstyler_image_layout', 4 );
+	
+
+/ss/templates/ss-loop-standard.php
+-----------------------------------------------------------------
+
+	add_action( 'woocommerce_before_shop_loop_item', 'ss_loop_standard_layout' , 3);
+	add_action ( 'ss_loop_before_product_data' , 'ss_loop_discount' , 10 );
+	add_action ( 'ss_loop_before_product_data' , 'ss_loop_image' , 20 );
+	add_action ( 'ss_loop_product_data' , 'ss_loop_title' , 10 );
+	add_action ( 'ss_loop_product_data' , 'ss_loop_price' , 20 );
+	add_action ( 'ss_loop_product_data' , 'ss_loop_rating' , 22 );
+	add_action ( 'ss_loop_product_data' , 'ss_loop_excerpt' , 25 );
+	add_action ( 'ss_loop_product_data' , 'ss_loop_quickview' , 40 );
+	add_action ( 'ss_loop_product_data' , 'ss_loop_add_to_cart' , 50 );
+	
+	
+
+/ss/templates/ss-sidebar.php
+-----------------------------------------------------------------	
+	
+	add_action ( 'ss_sidebar' , 'woo_categories_tree' );
+	add_action ( 'ss_sidebar' , 'woo_set_price_filter');
+	add_action ( 'ss_sidebar' , 'ss_variations' );
+	add_action ( 'ss_sidebar' , 'woocommerce_catalog_ordering' );
+	add_action ( 'ss_sidebar' , 'woocommerce_result_count' , 40 );
+	add_action ( 'ss_sidebar' , 'ss_promote_product' , 50 );
+
+	
+/ss/templates/ss-single.php
+-----------------------------------------------------------------	
+
+	add_action ( 'wp', 'init_single' );
+	add_action ( 'ss_content' , 'ss_product_summary' );
+	add_action ( 'ss_single_summary_after' , 'woocommerce_output_product_data_tabs' , 10 );
+	add_action ( 'ss_single_summary_after', 'ss_upsells_display' , 20 );
+	add_action ( 'ss_footer', 'ss_upsells_display' , 5 );
+	add_action ( 'ss_single_summary_after', 'ss_related_display' , 20 );
+	add_action ( 'ss_footer', 'ss_related_display' , 10 );	
+	add_action ( 'ss_footer', 'shopstyler_callout' , 20 );
+	add_action ( 'ss_sidebar' , 'woo_categories_tree' );
+	add_action ( 'ss_sidebar' , 'ss_promote_product' );
+	add_action ( 'ss_content' , 'woocommerce_breadcrumb' );
+	add_action ( $left , 'ss_single_product_images' );
+	add_action ( $left , 'social_footer_product' );
+	add_action ( 'ss_single_thumbs' , 'ss_single_product_thumnails' );
+	add_action ( $right , 'ss_single_rating' );
+	add_action ( $right , 'ss_single_title' );
+	add_action ( $right , 'woocommerce_template_single_meta' );
+	add_action ( $right , 'woocommerce_template_single_price' );
+	add_action ( $right , 'woocommerce_template_single_add_to_cart' );
+	add_action ( $right , 'woocommerce_template_single_excerpt' );
+	
+[LAYOUT]
+	
+	add_action ( 'woocommerce_before_single_product' , 'ss_wrapper_start' , 10 );
+	add_action ( 'woocommerce_before_single_product' , 'wrapper_ss_content_start' , 20 );
+	add_action ( 'woocommerce_single_product_summary' , 'wrapper_ss_single' , 25 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_content_end' , 10 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_sidebar_start' , 20 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_sidebar_end' , 30 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_related' , 55 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_footer_start' , 50 );
+	add_action ( 'woocommerce_after_single_product' , 'wrapper_ss_footer_end' , 60 );
+	add_action ( 'woocommerce_after_single_product' , 'ss_wrapper_end' , 70 );
+	
+	
+	

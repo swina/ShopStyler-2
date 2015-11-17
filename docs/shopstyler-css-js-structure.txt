@@ -1,0 +1,16 @@
+SHOPSTYLER 2.1.0
+
+
+CSS FILES
+/assets/css/ss-custom.css
+/assets/css/shop.css
+/assets/css/single-product.css
+/assets/css/animate.min.css
+/assets/css/shopstyler-media-queries.css
+/assets/css/shop-custom-home-full.css
+/assets/js/lightbox/css/lightbox.css
+
+JS FILES
+/assets/js/shopstyler.js
+/assets/js/shopstyler-splash.js
+/assets/js/lightbox/js/lightbox.min.js

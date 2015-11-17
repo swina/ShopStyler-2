@@ -1,0 +1,31 @@
+SHOPSTYLER 2.1.0
+
+shopstyler.php
+--------------------------------------------------------------------------
+ADMIN
+	/ss/admin/ss-admin-css-compiler.php		=> selectors css compiler (elements)
+	/ss/admin/ss-admin-css-template.php		=> templating css compiler (layout)
+
+FRONTEND
+[v] /ss/ss-hooks.php						=> shopstyler hooks
+[v]	/ss/ss-loop.php							=> loops engine
+[v]	/ss/templates/ss-categories.php			=> custom homepage
+[v]	/ss/templates/ss-parts.php				=> loop parts
+[v]	/ss/templates/ss-functions.php			=> frontend functions
+[v]	/ss/templates/ss-single.php				=> single product engine
+
+
+/ss/ss-loop.php 
+[loops engine]
+--------------------------------------------------------------------------
+[v]	/ss/templates/ss-loop-standard.php		=> loops engine for all layouts
+[v]	/ss/templates/ss-sidebar.php			=> ss pseudo sidebar
+[v]	/ss/templates/ss-footer.php				=> ss pseudo footer
+[v]	/ss/templates/ss-cart.php				=> cart engine
+
+
+/ss/templates/ss-single.php
+[single product engine]
+--------------------------------------------------------------------------
+[v]	/ss/templates/ss-single-functions.php	=> product single functions
+

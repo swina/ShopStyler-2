@@ -1,0 +1,32 @@
+SHOPSTYLER 2.1.0
+
+
+SHOPSTYLER HOOKS
+*****************************************************************
+	
+LAYOUT HOOKS
+----------------------------------	
+	ss_header_before					-> before header
+	ss_header							-> header
+	ss_wrapper							-> inside wrapper, before content
+	ss_before_content					-> before content
+	ss_content							-> content
+	ss_content_after					-> content after
+	ss_sidebar							-> sidebar
+	ss_sidebar_after					-> after sidebar
+	ss_footer							-> footer
+	
+LOOPS HOOKS
+----------------------------------
+	ss_loop_before_product_data			-> before product data
+	ss_loop_product_data				-> product data
+	ss_loop_after_product_image			-> after product image
+	
+SINGLE PRODUCT HOOKS
+----------------------------------
+	ss_single_left						-> single product left div
+	ss_single_thumbs					-> single product thumbs
+	ss_single_right						-> single product right div
+	ss_single_summary_after				-> single product after summary
+	ss_related							-> single product related (upsell/related)
+	

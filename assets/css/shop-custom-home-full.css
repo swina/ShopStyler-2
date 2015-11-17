@@ -1,0 +1,112 @@
+div.shop-homepage-header-image {
+    display: table;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.home-categories {
+	padding:0;
+	width:100%;
+	display:inline-block;
+	animation-delay:2s;
+}
+.custom-home-title {
+   margin:0!important;
+   border:0;
+   
+   padding:1% 0 1% 1%;
+   margin-top:-10px!important;
+   /*margin:4% 15% 2em 15%!important;*/
+    
+}
+ 
+div.custom-home-title span {
+    text-transform:uppercase;
+    padding:1% 2% 1% 2%;
+	font-size:1.5vw!important;
+	
+	font-weight:700;
+ }
+ 
+ul.custom-home-page-products {
+  margin:0!important;
+  padding:0!important;
+  /*margin:0 15% 0 15%!important;*/
+}
+
+ul.custom-home-page-products li.product-home {
+ list-style-type:none!important;
+  width:20%!important;
+  float: left!important;
+  /*margin: 1% 1% 2em 3.4%!important;*/
+  margin:0!important;
+  padding:0!important;
+  /*padding: 0 0 2% 0;*/
+  position: relative!important;
+}
+
+ul.custom-home-page-products li.product-home .product-image { 
+	width:100%!important; 
+	margin:0!important; 
+	padding:0!important; 
+	border:0!important;
+}
+
+ul.custom-home-page-products li.product-home .product-image img { 
+	width:100%!important; 
+	
+	margin:0!important; 
+}
+
+li.product-home .price-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 15%;
+    text-align: center;
+    padding-top: 4%!important;
+    padding: 6px;
+    background: #fff;
+	color:#000;
+    border-top: 1px solid #eaeaea;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    vertical-align: middle;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 4px 4px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+li.product-home span.price-home span.original .amount {
+  text-decoration:line-through;
+  font-size:.8em!important;
+}
+
+li.product-home .title {
+  position:absolute;
+  bottom:15%!important;
+  padding:6px;
+  /*background:#4E3B39;*/
+  color: #000;
+  right:0;
+  width:70%;
+  text-align:center;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+  	font-size:1.2vw!important;
+
+}
+
+li.product-home .product-caption {
+  text-align:center;
+  padding: 45% 0 45% 0!important;
+  width:100%;
+ 
+}
+
+li.product-home .product-caption .button {
+	font-size:1.5vw!important;
+}
