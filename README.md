@@ -1,4 +1,4 @@
-# ShopStyler-2
+# ShopStyler 2.0.0
 ShopStyler WooCommerce Customizer
 ShopStyler is a WordPress plugin created in order to customize WooCommerce pages.
 
